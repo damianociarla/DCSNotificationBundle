@@ -1,0 +1,25 @@
+{
+    "name": "damianociarla/notification-bundle",
+    "description": "DCSNotificationBundle is a Symfony2 bundle that allows you to send notifications of any type to any recipient",
+    "type": "library",
+    "keywords": [
+        "symfony2","notification","recipient","cron","schedule"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/damianociarla/DCSNotificationBundle",
+    "authors": [
+        {
+            "name": "Damiano Ciarla",
+            "email": "damiano.ciarla@gmail.com",
+            "homepage": "http://www.damianociarla.it/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "symfony/symfony": "~2.3"
+    },
+    "autoload": {
+        "psr-0": { "DCS\\NotificationBundle": "" }
+    },
+    "target-dir": "DCS/NotificationBundle"
+}

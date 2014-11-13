@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dcs_notification.form.actions_enabled.class">DCS\NotificationBundle\Form\Type\ActionsEnabledFormType</parameter>
+        <parameter key="dcs_notification.form.component_setting.class">DCS\NotificationBundle\Form\Type\ComponentSettingFomType</parameter>
+    </parameters>
+
+    <services>
+        <service id="dcs_notification.form.actions_enabled" class="%dcs_notification.form.actions_enabled.class%">
+            <argument>%dcs_notification.actions%</argument>
+            <tag name="form.type" alias="dcs_notification_actions_enabled" />
+        </service>
+        <service id="dcs_notification.form.component_setting" class="%dcs_notification.form.component_setting.class%">
+            <argument>%dcs_notification.model.component_setting.class%</argument>
+            <tag name="form.type" alias="dcs_notification_component_setting" />
+        </service>
+    </services>
+</container>

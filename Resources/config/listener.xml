@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dcs_notification.listener.dcs_notification.class">DCS\NotificationBundle\Listener\DCSNotificationEventSubscriber</parameter>
+        <parameter key="dcs_notification.listener.doctrine.class">DCS\NotificationBundle\Listener\DoctrineEventListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="dcs_notification.listener.dcs_notification" class="%dcs_notification.listener.dcs_notification.class%">
+            <argument type="service" id="dcs_notification.manager.component_setting" />
+            <argument>%dcs_notification.actions%</argument>
+            <tag name="kernel.event_subscriber" />
+        </service>
+        <service id="dcs_notification.listener.doctrine" class="%dcs_notification.listener.doctrine.class%">
+            <argument type="service" id="service_container" />
+            <tag name="doctrine.event_listener" event="postLoad" />
+        </service>
+    </services>
+</container>
